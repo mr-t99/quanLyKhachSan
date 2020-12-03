@@ -68,6 +68,42 @@
     <Compile Include="view\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\UserControll\datphong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\UserControll\datphong.Designer.cs">
+      <DependentUpon>datphong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControll\lichsu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\UserControll\lichsu.Designer.cs">
+      <DependentUpon>lichsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControll\nhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\UserControll\nhanvien.Designer.cs">
+      <DependentUpon>nhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControll\phong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\UserControll\phong.Designer.cs">
+      <DependentUpon>phong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControll\thong tin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\UserControll\thong tin.Designer.cs">
+      <DependentUpon>thong tin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControll\traphong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\UserControll\traphong.Designer.cs">
+      <DependentUpon>traphong.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -82,6 +118,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserControll\datphong.resx">
+      <DependentUpon>datphong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserControll\lichsu.resx">
+      <DependentUpon>lichsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserControll\nhanvien.resx">
+      <DependentUpon>nhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserControll\phong.resx">
+      <DependentUpon>phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserControll\thong tin.resx">
+      <DependentUpon>thong tin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\UserControll\traphong.resx">
+      <DependentUpon>traphong.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
