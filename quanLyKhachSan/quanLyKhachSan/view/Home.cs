@@ -12,9 +12,20 @@ namespace quanLyKhachSan.view
 {
     public partial class Home : Form
     {
+        private int type;
         public Home()
         {
             InitializeComponent();
+        }
+
+        public void getType(int type)
+        {
+            this.type = type;
+            if(this.type != 1)
+            {
+                quanly.Enabled = false;
+                thongke.Enabled = false;
+            }
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -35,6 +46,9 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = false;
             phong1.Visible = false;
             thong_tin1.Visible = false;
+            //xl nhan vien
+
+
         }
 
         private void phòngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,5 +108,6 @@ namespace quanLyKhachSan.view
                 this.Dispose();
             }
         }
+        
     }
 }

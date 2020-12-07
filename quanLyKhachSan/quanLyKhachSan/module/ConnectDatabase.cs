@@ -60,5 +60,27 @@ namespace quanLyKhachSan.module
             }
             return rowCount;
         }
+        public int insetGetId(string sql)
+        {
+            int newId = 0;
+            try
+            {
+                conn = new SqlConnection(sqlConnect);
+                conn.Open();
+                cmd = new SqlCommand(sql, conn);
+                newId = (int)cmd.ExecuteScalar();
+                Console.WriteLine();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Lỗi phần InsertData module ConnectDatabase");
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return newId;
+        }
     }
 }

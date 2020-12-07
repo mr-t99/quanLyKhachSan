@@ -3,11 +3,15 @@ go
 use quanLyKhachSan
 go
 
+create table quyen(
+	id int identity(1, 1) primary key,
+	t_quyen nvarchar(20) not null
+)
 create table tai_khoan(
 	id int identity(1, 1) primary key,
-	t_khoan char(50) not null,
-	m_khau char(50) not null,
-	user_type int not null
+	t_khoan varchar(50) not null,
+	m_khau varchar(50) not null,
+	user_type int foreign key references quyen(id)
 )
 create table nhan_vien(
 	id int identity(1,1) primary key,
@@ -60,9 +64,9 @@ create table hoa_don(
 	t_tien int
 )
 
-
+insert into quyen(t_quyen) values(N'Quản lý'),(N'Nhân viên')
 insert into tai_khoan(t_khoan, m_khau, user_type) values ('admin','admin',1), ('thang','1',2), ('cuong','1',2)
-insert into nhan_vien(id_tKhoan, h_ten, gioi_tinh, q_quan, ngay_lam) values(1,N'Trần Ngọc Thăng', 1, N'Quỳnh Phụ - Thái Bình', GETDATE()), (2,N'Chung Thanh Huy', 1, N'Cái Bè - Tiền Giang', GETDATE()),(3,N'Hồ Văn Cường', 1, N'Quỳnh Phụ - Thái Bình', GETDATE())
+insert into nhan_vien(id_tKhoan, h_ten, gioi_tinh, q_quan, ngay_lam) values(1,N'Trần Ngọc Thăng', 0, N'Quỳnh Phụ - Thái Bình', GETDATE()), (2,N'Chung Thanh Huy', 1, N'Cái Bè - Tiền Giang', GETDATE()),(3,N'Hồ Văn Cường', 1, N'Quỳnh Phụ - Thái Bình', GETDATE())
 insert into tang(ten) values (1),(2),(3),(4);
 insert into khach_hang(h_ten) values (N'Trần Ngọc Thăng'),(N'Trần Văn Cường'),(N'Chung Thanh Huy'),(N'Nguyễn Chí Tường')
 insert into dich_vu(t_dvu, gia) values (N'Qua đêm', 300000),(N'Theo giờ', 70000)
@@ -73,3 +77,15 @@ select * from tai_khoan, nhan_vien where tai_khoan.id = nhan_vien.id_tKhoan and 
 
 select hoa_don.id, khach_hang.h_ten as N'Họ tên khách hàng', phong.t_phong as N'Phòng', tang.ten as N'Tầng', hoa_don.gio_vao as N'Giờ vào', hoa_don.gio_ra as N'Giờ ra',dich_vu.t_dvu as N'Dịch vụ', hoa_don.t_tien as N'Thành tiền' from phong, hoa_don, dich_vu, khach_hang, tang  where hoa_don.id_phong = phong.id and dich_vu.id = hoa_don.id_dvu and hoa_don.id_khang = khach_hang.id and phong.id_tang = tang.id
 
+/*Lấy danh sách tài khoản:*/
+select tai_khoan.id, t_khoan as N'Tên Tài Khoản', m_khau as N'Mật khẩu', quyen.t_quyen as 'Loại tài khoản', h_ten as N'Họ tên', nhan_vien.gioi_tinh as N'Giới tính', q_quan as N'Quê quán', ngay_lam as N'Ngày làm' from tai_khoan, nhan_vien, quyen where tai_khoan.id = nhan_vien.id_tKhoan and tai_khoan.user_type = quyen.id
+/*thêm tài khoản*/
+insert into tai_khoan(t_khoan, m_khau, user_type) values ('aaa','aaa',1)
+/*Layas lai id khi them*/
+INSERT INTO tai_khoan(t_khoan, m_khau, user_type) VALUES ('abc', 'abc', 1);SELECT CAST(scope_identity() AS int)
+
+/*sua bang*/
+update tai_khoan set t_khoan='', m_khau='', user_type=1 where id=;
+update nhan_vien set h_ten='test doi', gioi_tinh=1, q_quan='abc' where id_tKhoan = (select id from tai_khoan where id=10)
+
+drop database quanLyKhachSan
