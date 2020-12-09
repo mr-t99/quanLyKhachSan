@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using quanLyKhachSan.module;
 using System.Collections;
-using System.Data;
 
 
 namespace quanLyKhachSan.view.UserControll

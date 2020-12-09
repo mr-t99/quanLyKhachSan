@@ -41,6 +41,7 @@ namespace quanLyKhachSan.module
         }
         public int RepairData(string sql)
         {
+            Console.WriteLine(sql);
             int rowCount = 0;
             try
             {
