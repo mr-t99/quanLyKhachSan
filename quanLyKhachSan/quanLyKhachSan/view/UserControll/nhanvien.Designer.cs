@@ -318,6 +318,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "nhanvien";
             this.Size = new System.Drawing.Size(1258, 597);
+            this.Load += new System.EventHandler(this.nhanvien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tableDsNhanvien)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

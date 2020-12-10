@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace quanLyKhachSan.module
 {
-    class User
+     internal class User
     {
         private int id, user_type, id_nvien, gioi_tinh;
         private string t_khoan, m_khau, h_ten, q_quan, ngay_lam;

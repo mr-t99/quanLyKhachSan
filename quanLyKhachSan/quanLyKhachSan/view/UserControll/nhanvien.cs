@@ -77,7 +77,7 @@ namespace quanLyKhachSan.view.UserControll
 
         private void tableDsNhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex != -1)
+            if(e.RowIndex != -1 )
             {
                 btSua.Enabled = true;
                 btXoa.Enabled = true;
@@ -189,6 +189,11 @@ namespace quanLyKhachSan.view.UserControll
                 }
                 
             }
+        }
+
+        private void nhanvien_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

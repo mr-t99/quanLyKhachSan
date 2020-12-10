@@ -43,8 +43,8 @@
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.hoten = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ngayThang = new System.Windows.Forms.ToolStripStatusLabel();
             this.thong_tin1 = new quanLyKhachSan.view.UserControll.thong_tin();
             this.nhanvien1 = new quanLyKhachSan.view.UserControll.nhanvien();
             this.lichsu1 = new quanLyKhachSan.view.UserControll.lichsu();
@@ -81,21 +81,21 @@
             // nhânViênToolStripMenuItem
             // 
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
             this.nhânViênToolStripMenuItem.Click += new System.EventHandler(this.nhânViênToolStripMenuItem_Click);
             // 
             // phòngToolStripMenuItem
             // 
             this.phòngToolStripMenuItem.Name = "phòngToolStripMenuItem";
-            this.phòngToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.phòngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.phòngToolStripMenuItem.Text = "Phòng";
             this.phòngToolStripMenuItem.Click += new System.EventHandler(this.phòngToolStripMenuItem_Click);
             // 
             // lịchSửToolStripMenuItem
             // 
             this.lịchSửToolStripMenuItem.Name = "lịchSửToolStripMenuItem";
-            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.lịchSửToolStripMenuItem.Text = "Lịch sử";
             this.lịchSửToolStripMenuItem.Click += new System.EventHandler(this.lịchSửToolStripMenuItem_Click);
             // 
@@ -134,13 +134,13 @@
             // hômNayToolStripMenuItem
             // 
             this.hômNayToolStripMenuItem.Name = "hômNayToolStripMenuItem";
-            this.hômNayToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hômNayToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.hômNayToolStripMenuItem.Text = "Hôm nay";
             // 
             // thángToolStripMenuItem
             // 
             this.thángToolStripMenuItem.Name = "thángToolStripMenuItem";
-            this.thángToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thángToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.thángToolStripMenuItem.Text = "Tháng";
             // 
             // userToolStripMenuItem
@@ -170,26 +170,26 @@
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
+            this.hoten,
+            this.ngayThang});
             this.statusStrip1.Location = new System.Drawing.Point(0, 627);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1282, 26);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // hoten
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 20);
-            this.toolStripStatusLabel1.Text = "Nhân viên: Trần Ngọc Thăng";
+            this.hoten.Name = "hoten";
+            this.hoten.Size = new System.Drawing.Size(195, 20);
+            this.hoten.Text = "Nhân viên: Trần Ngọc Thăng";
             // 
-            // toolStripStatusLabel2
+            // ngayThang
             // 
-            this.toolStripStatusLabel2.Margin = new System.Windows.Forms.Padding(700, 4, 0, 2);
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(152, 20);
-            this.toolStripStatusLabel2.Text = "Hôm nay: 20/12/2020";
+            this.ngayThang.Margin = new System.Windows.Forms.Padding(700, 4, 0, 2);
+            this.ngayThang.Name = "ngayThang";
+            this.ngayThang.Size = new System.Drawing.Size(152, 20);
+            this.ngayThang.Text = "Hôm nay: 20/12/2020";
             // 
             // thong_tin1
             // 
@@ -278,8 +278,8 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel hoten;
+        private System.Windows.Forms.ToolStripStatusLabel ngayThang;
         private UserControll.phong phong1;
         private UserControll.datphong datphong1;
         private UserControll.lichsu lichsu1;

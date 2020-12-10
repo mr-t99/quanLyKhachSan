@@ -53,6 +53,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="module\ConnectDatabase.cs" />
+    <Compile Include="module\modelHoaDon.cs" />
     <Compile Include="module\ModelPhong.cs" />
     <Compile Include="module\Quyen.cs" />
     <Compile Include="module\User.cs" />

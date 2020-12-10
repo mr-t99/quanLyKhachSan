@@ -123,7 +123,8 @@ namespace quanLyKhachSan.view.UserControll
 
         private void dataGirlPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            
+            if (e.RowIndex != -1 )
             {
                 this.id_phong = (int)dataGirlPhong.Rows[e.RowIndex].Cells["id"].Value;
                 LoadDataThietBi();
