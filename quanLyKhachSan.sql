@@ -58,7 +58,8 @@ create table thu_nhap(
 )
 create table hoa_don(
 	id int identity(1,1) primary key,
-	id_tKhoan int foreign key references tai_khoan(id),
+	id_tKhoan_vao int foreign key references tai_khoan(id),
+	id_tKhoan_ra int foreign key references tai_khoan(id),
 	khach_hang nvarchar(50) not null,
 	gio_vao datetime,
 	gio_ra datetime,
@@ -66,6 +67,7 @@ create table hoa_don(
 	id_phong int foreign key references phong(id),
 	t_tien int
 )
+
 
 
 insert into quyen(t_quyen) values(N'Quản lý'),(N'Nhân viên');
@@ -76,7 +78,7 @@ insert into tang(ten) values (N'Tầng 1'),(N'Tầng 2'),(N'Tầng 3'),(N'Tầng
 insert into dich_vu(t_dvu, gia) values (N'Qua đêm', 300000),(N'Theo giờ', 70000)
 insert into phong(t_phong, id_tang, t_thai) values ('PI1', 1, 1),('PI2', 1, 1),('PI3', 1, 1),('PI4', 1, 1),('PI5', 1, 2),('PII1', 2, 2),('PII2', 2, 2),('PII3', 2, 3),('PII4', 2, 1),('PII5', 2, 1),('PII5', 2, 1),('PIII1', 3, 1),('PIII2', 3, 1)
 insert into thiet_bi(id_phong, t_tbi, gia, t_ttrang) values (1, N'Máy lạnh',5000000, N'Bình Thường'),(2, N'Tivi',5000000, N'Bình Thường'),(3, N'Máy giặt',5000000, N'Bình Thường'),(4, N'Máy lạnh',5000000, N'Bình Thường'),(5, N'Máy lạnh',5000000, N'Bình Thường')
-insert into hoa_don(id_tKhoan,khach_hang, gio_vao, gio_ra, id_dvu, id_phong, t_tien) values (1,N'Trần Ngọc Thăng', GETDATE(), null, 1, 2, 400000),(1,N'Nguyễn Chí Tường', GETDATE(), GETDATE(),  1, 2, 400000),(1,N'Chung Thanh Huy', GETDATE(), GETDATE(),  1, 2, 400000),(1, N'Võ Chí Cường',GETDATE(), GETDATE(),  1, 2, 400000),(1, N'Lê Quốc Thịnh',GETDATE(), GETDATE(),  1, 2, 400000),(1, N'Võ Thanh Hưng',GETDATE(), GETDATE(),  1, 2, 400000)
+insert into hoa_don(id_tKhoan_vao ,khach_hang, gio_vao, gio_ra, id_dvu, id_phong, t_tien) values (1,N'Trần Ngọc Thăng', GETDATE(), null, 1, 2, 400000),(1,N'Nguyễn Chí Tường', GETDATE(), GETDATE(),  1, 2, 400000),(1,N'Chung Thanh Huy', GETDATE(), GETDATE(),  1, 2, 400000),(1, N'Võ Chí Cường',GETDATE(), GETDATE(),  1, 2, 400000),(1, N'Lê Quốc Thịnh',GETDATE(), GETDATE(),  1, 2, 400000),(1, N'Võ Thanh Hưng',GETDATE(), GETDATE(),  1, 2, 400000)
 select * from tai_khoan, nhan_vien where tai_khoan.id = nhan_vien.id_tKhoan and tai_khoan.t_khoan = 'admin' and tai_khoan.m_khau='admin'
 
 --select hoa_don.id, khach_hang.h_ten as N'Họ tên khách hàng', phong.t_phong as N'Phòng', tang.ten as N'Tầng', hoa_don.gio_vao as N'Giờ vào', hoa_don.gio_ra as N'Giờ ra',dich_vu.t_dvu as N'Dịch vụ', hoa_don.t_tien as N'Thành tiền' from phong, hoa_don, dich_vu, khach_hang, tang  where hoa_don.id_phong = phong.id and dich_vu.id = hoa_don.id_dvu and hoa_don.id_khang = khach_hang.id and phong.id_tang = tang.id
@@ -120,4 +122,4 @@ select phong.id, phong.id_tang,  t_phong as N'Phòng', ten as N'Tầng', trang_t
 --UPDATE DATA
 update phong set t_thai=1 where id=2;
 --INSERT
-delete hoa_don
+select * from hoa_don
