@@ -45,50 +45,52 @@ namespace quanLyKhachSan.view.UserControll
         private modelHoaDon hoaDon;
         private HoaDon hd = new HoaDon();
         private string t_nv;
+
         public datphong()
         {
             InitializeComponent();
         }
         public void setOption(int a, int id, string t_nv)
         {
-            MessageBox.Show(a.ToString());
-            //this.selectOption = a;
-            //this.id_tkhoan = id;
-            //this.t_nv = t_nv;
-            //if (a == 0) {
-            //    txtTenKhachHang.Clear();
-            //    panelPhong.Enabled = false;
-            //    panelThongTin.Enabled = false;
-            //    btXacNhan.Text = "Trả Phòng";
-            //    label1.Text = "Trả Phòng";
-            //    loadDataGirlView();
-            //    btXacNhan.Enabled = true;
-            //}
-            //if (a == 1)
-            //{
-            //    txtTenKhachHang.Clear();
-            //    panelPhong.Enabled = true;
-            //    panelThongTin.Enabled = true;
-            //    btXacNhan.Text = "Đặt phòng";
-            //    label1.Text = "Đặt phòng";
-            //    loadDataGirlView();
-            //    btXacNhan.Enabled = false;
-            //}
+            this.selectOption = a;
+            this.id_tkhoan = id;
+            this.t_nv = t_nv;
+            if (a == 1)
+            {
+                txtTenKhachHang.Clear();
+                panelPhong.Enabled = false;
+                panelThongTin.Enabled = false;
+                btXacNhan.Text = "Trả Phòng";
+                label1.Text = "Trả Phòng";
+                loadDataGirlView();
+                btXacNhan.Enabled = false;
+            }
+            if (a == 0)
+            {
+                txtTenKhachHang.Clear();
+                panelPhong.Enabled = true;
+                panelThongTin.Enabled = true;
+                btXacNhan.Text = "Đặt phòng";
+                label1.Text = "Đặt phòng";
+                loadDataGirlView();
+                btXacNhan.Enabled = true;
+            }
         }
 
-        private void loadDataGirlView()
+        public void loadDataGirlView()
         {
             cnn = new ConnectDatabase();
             dataGirl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            if (this.selectOption == 0)
+            if (this.selectOption == 1)
             {
-                dataGirl.DataSource = cnn.getdata("select t_phong as N'Phòng trống', ten as N'Tầng', trang_thai.t_tthai as N'Trạng thái' from phong, trang_thai,tang where phong.t_thai = trang_thai.id and tang.id = phong.id_tang and trang_thai.id =1;");   
+                dataGirl.DataSource = cnn.getdata("select tang.ten,phong.t_phong as N'Tên phòng', hoa_don.khach_hang as N'Khách hàng','Giờ vào'=concat(DATEPART(hh, gio_vao),':', DATEPART(mi, gio_vao)), 'Ngày vào'=concat(DATEPART(dd, gio_vao),'/', DATEPART(mm, gio_vao),'/', DATEPART(YY, gio_vao)), dich_vu.t_dvu as N'Dịch vụ', id_phong, hoa_don.id from phong, hoa_don, tang, dich_vu where tang.id = phong.id_tang and hoa_don.id_phong = phong.id and gio_ra is null and hoa_don.id_dvu = dich_vu.id;");
+                dataGirl.Columns[0].Visible = false;
+                dataGirl.Columns[6].Visible = false;
+                dataGirl.Columns[7].Visible = false;
             }
             else
             {
-                dataGirl.DataSource = cnn.getdata("select tang.ten,phong.t_phong as N'Tên phòng', hoa_don.khach_hang as N'Khách hàng','Giờ vào'=concat(DATEPART(hh, gio_vao),':', DATEPART(mi, gio_vao)), 'Ngày vào'=concat(DATEPART(dd, gio_vao),'/', DATEPART(mm, gio_vao),'/', DATEPART(YY, gio_vao)), dich_vu.t_dvu as N'Dịch vụ', id_phong from phong, hoa_don, tang, dich_vu where tang.id = phong.id_tang and hoa_don.id_phong = phong.id and gio_ra is null and hoa_don.id_dvu = dich_vu.id;");
-                dataGirl.Columns[0].Visible = false;
-                dataGirl.Columns[6].Visible = false;
+                dataGirl.DataSource = cnn.getdata("select t_phong as N'Phòng trống', ten as N'Tầng', trang_thai.t_tthai as N'Trạng thái' from phong, trang_thai,tang where phong.t_thai = trang_thai.id and tang.id = phong.id_tang and trang_thai.id =1;");
             }
         }
 
@@ -145,6 +147,7 @@ namespace quanLyKhachSan.view.UserControll
                     this.hd.D_vu = dataGirl.Rows[e.RowIndex].Cells[5].Value.ToString();
                     this.hd.Id_phong = dataGirl.Rows[e.RowIndex].Cells[6].Value.ToString();
                     this.hd.Id_tkhoan = this.id_tkhoan.ToString();
+                    this.hd.Id_hoaDon = dataGirl.Rows[e.RowIndex].Cells[7].Value.ToString();
 
                     //đoạn này là sử lý cộng trừ ngày
                     string stNgayVao = dataGirl.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dataGirl.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -186,7 +189,7 @@ namespace quanLyKhachSan.view.UserControll
             {
                 //datphong
                 setData();
-                row = cnn.RepairData("insert into hoa_don(id_tKhoan,khach_hang, gio_vao, gio_ra, id_dvu, id_phong, t_tien) values (" +
+                row = cnn.RepairData("insert into hoa_don(id_tKhoan_vao,khach_hang, gio_vao, gio_ra, id_dvu, id_phong, t_tien) values (" +
                     this.hoaDon.Id_tkhoan + ",N'" +
                     this.hoaDon.T_khang+ "', GETDATE(), null, "+
                     this.hoaDon.Id_dichvu+", "+
@@ -312,6 +315,11 @@ namespace quanLyKhachSan.view.UserControll
                 lableThanhtien.Text = "Khác hàng mới dùng: "+phut+" phút";
                 this.hd.S_tien = "0";
             }
+        }
+        public void loadData(int i)
+        {
+            this.selectOption = i;
+            dataGirl.DataSource = null;
         }
     }
 }

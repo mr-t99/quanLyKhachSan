@@ -58,26 +58,27 @@ namespace quanLyKhachSan.view
         {
             ConnectDatabase cnn = new ConnectDatabase();
             int row = 1;
-            //if(cnn.RepairData("update hoa_don set id_tKhoan_ra = " + hd.Id_tkhoan + ", gio_ra = GETDATE(), t_tien =" + hd.S_tien + " where id=" + hd.Id_phong + ";") != 0)
-            //{
-            //    if(cnn.RepairData("update phong set t_thai = 1 where id =" + hd.Id_phong + ";") != 0)
-            //    {
-            //        row = 1;
-            //    }
-            //    else
-            //    {
-            //        row = 0;
-            //    }
-            //}
-            //else
-            //{
-            //    row = 0;
-            //}
-
-            this.gui += FromHoaDon_gui;
+            if (cnn.RepairData("update hoa_don set id_tKhoan_ra = " + hd.Id_tkhoan + ", gio_ra = GETDATE(), t_tien =" + hd.S_tien + " where id=" + hd.Id_hoaDon + ";") != 0)
+            {
+                if (cnn.RepairData("update phong set t_thai = 1 where id =" + hd.Id_phong + ";") != 0)
+                {
+                    row = 1;
+                    MessageBox.Show("In hóa đơn thành công");
+                    this.gui += FromHoaDon_gui;
             if (gui != null)
             {
                 gui(row);
+            }
+            this.Dispose();
+                }
+                else
+                {
+                    row = 0;
+                }
+            }
+            else
+            {
+                row = 0;
             }
         }
 

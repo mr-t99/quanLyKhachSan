@@ -120,6 +120,7 @@
             this.btTraPhong.Name = "btTraPhong";
             this.btTraPhong.Size = new System.Drawing.Size(224, 26);
             this.btTraPhong.Text = "Trả phòng";
+            this.btTraPhong.Click += new System.EventHandler(this.btTraPhong_Click);
             // 
             // thongke
             // 
