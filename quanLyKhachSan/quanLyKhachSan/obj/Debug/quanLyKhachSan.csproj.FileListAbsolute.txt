@@ -15,3 +15,4 @@ D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanL
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.nhanvien.resources
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.traphong.resources
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.thong_tin.resources
+D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.FromHoaDon.resources

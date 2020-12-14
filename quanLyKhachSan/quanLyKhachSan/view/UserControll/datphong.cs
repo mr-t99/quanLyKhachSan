@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using quanLyKhachSan.module;
 using System.Collections;
+using System.Globalization;
 
 namespace quanLyKhachSan.view.UserControll
 {
@@ -42,31 +43,37 @@ namespace quanLyKhachSan.view.UserControll
         private ConnectDatabase cnn;
         private ArrayList arrDichVu, arrPhong, arrTang;
         private modelHoaDon hoaDon;
+        private HoaDon hd = new HoaDon();
+        private string t_nv;
         public datphong()
         {
             InitializeComponent();
         }
-        public void setOption(int a, int id)
+        public void setOption(int a, int id, string t_nv)
         {
-            this.selectOption = a;
-            this.id_tkhoan = id;
-            if (a == 1) {
-                txtTenKhachHang.Clear();
-                panelPhong.Enabled = false;
-                panelThongTin.Enabled = false;
-                btXacNhan.Text = "Trả Phòng";
-                label1.Text = "Trả Phòng";
-                loadDataGirlView();
-            }
-            if (a == 0)
-            {
-                txtTenKhachHang.Clear();
-                panelPhong.Enabled = true;
-                panelThongTin.Enabled = true;
-                btXacNhan.Text = "Đặt phòng";
-                label1.Text = "Đặt phòng";
-                loadDataGirlView();
-            }
+            MessageBox.Show(a.ToString());
+            //this.selectOption = a;
+            //this.id_tkhoan = id;
+            //this.t_nv = t_nv;
+            //if (a == 0) {
+            //    txtTenKhachHang.Clear();
+            //    panelPhong.Enabled = false;
+            //    panelThongTin.Enabled = false;
+            //    btXacNhan.Text = "Trả Phòng";
+            //    label1.Text = "Trả Phòng";
+            //    loadDataGirlView();
+            //    btXacNhan.Enabled = true;
+            //}
+            //if (a == 1)
+            //{
+            //    txtTenKhachHang.Clear();
+            //    panelPhong.Enabled = true;
+            //    panelThongTin.Enabled = true;
+            //    btXacNhan.Text = "Đặt phòng";
+            //    label1.Text = "Đặt phòng";
+            //    loadDataGirlView();
+            //    btXacNhan.Enabled = false;
+            //}
         }
 
         private void loadDataGirlView()
@@ -79,8 +86,9 @@ namespace quanLyKhachSan.view.UserControll
             }
             else
             {
-                dataGirl.DataSource = cnn.getdata("select tang.ten,phong.t_phong as N'Tên phòng', hoa_don.khach_hang as N'Khách hàng','Giờ vào'=concat(DATEPART(hh, gio_vao),':', DATEPART(mi, gio_vao)), 'Ngày vào'=concat(DATEPART(dd, gio_vao),'/', DATEPART(mm, gio_vao),'/', DATEPART(YY, gio_vao)), dich_vu.t_dvu as N'Dịch vụ' from phong, hoa_don, tang, dich_vu where tang.id = phong.id_tang and hoa_don.id_phong = phong.id and gio_ra is null and hoa_don.id_dvu = dich_vu.id;");
+                dataGirl.DataSource = cnn.getdata("select tang.ten,phong.t_phong as N'Tên phòng', hoa_don.khach_hang as N'Khách hàng','Giờ vào'=concat(DATEPART(hh, gio_vao),':', DATEPART(mi, gio_vao)), 'Ngày vào'=concat(DATEPART(dd, gio_vao),'/', DATEPART(mm, gio_vao),'/', DATEPART(YY, gio_vao)), dich_vu.t_dvu as N'Dịch vụ', id_phong from phong, hoa_don, tang, dich_vu where tang.id = phong.id_tang and hoa_don.id_phong = phong.id and gio_ra is null and hoa_don.id_dvu = dich_vu.id;");
                 dataGirl.Columns[0].Visible = false;
+                dataGirl.Columns[6].Visible = false;
             }
         }
 
@@ -121,10 +129,33 @@ namespace quanLyKhachSan.view.UserControll
                 if (this.selectOption == 1)
                 {
                     //Tra phog
+                    btXacNhan.Enabled = true;
                     txtTenKhachHang.Text = dataGirl.Rows[e.RowIndex].Cells[2].Value.ToString();
                     cbDichVu.SelectedIndex = cbDichVu.FindStringExact(dataGirl.Rows[e.RowIndex].Cells[5].Value.ToString());
                     cbTang.SelectedIndex = cbTang.FindStringExact(dataGirl.Rows[e.RowIndex].Cells[0].Value.ToString());
                     cbPhong.SelectedIndex = cbPhong.FindStringExact(dataGirl.Rows[e.RowIndex].Cells[1].Value.ToString());
+
+                    //gan gia tri cho đối tượng hóa đơn
+                    this.hd.G_vao = dataGirl.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    this.hd.N_vao = dataGirl.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    this.hd.T_khang = dataGirl.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    this.hd.T_nv = this.t_nv;
+                    this.hd.T_phong = dataGirl.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    this.hd.T_tang = dataGirl.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    this.hd.D_vu = dataGirl.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    this.hd.Id_phong = dataGirl.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    this.hd.Id_tkhoan = this.id_tkhoan.ToString();
+
+                    //đoạn này là sử lý cộng trừ ngày
+                    string stNgayVao = dataGirl.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dataGirl.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    stNgayVao = DateTime.ParseExact(stNgayVao, "dd/MM/yyyy H:m", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture);
+                    DateTime dateNgayVao = DateTime.Parse(stNgayVao);
+                    //Lấy id dịch vụ
+                    DichVu dv = new DichVu();
+                    dv = (DichVu)cbDichVu.SelectedItem;
+                    //gọi hàm tính tiền
+                    tinhTien(dateNgayVao, dv.Id);
+                    
                 }
                 if (this.selectOption == 0)
                 {
@@ -166,17 +197,18 @@ namespace quanLyKhachSan.view.UserControll
                     if(row != 0)
                     {
                         MessageBox.Show("Đã đặt phòng thành công");
+                        dataGirl.DataSource = cnn.getdata("select t_phong as N'Phòng trống', ten as N'Tầng', trang_thai.t_tthai as N'Trạng thái' from phong, trang_thai,tang where phong.t_thai = trang_thai.id and tang.id = phong.id_tang and trang_thai.id =1;");
                     }
                     else
                     {
                         MessageBox.Show("Lỗi đặt phòng");
-                        Console.WriteLine("Phần thêm hóa đơn");
+                        Console.WriteLine("Sua phong");
                     }
                 }
                 else
                 {
                     MessageBox.Show("Lỗi đặt phòng");
-                    Console.WriteLine("Phần thêm hóa đơn");
+                    Console.WriteLine("Them Hoa don");
                 }
                 
                 
@@ -184,6 +216,8 @@ namespace quanLyKhachSan.view.UserControll
             else
             {
                 //tra phong
+                FromHoaDon fromHoaDon = new FromHoaDon(this.hd);
+                fromHoaDon.Show();
             }
         }
 
@@ -234,6 +268,50 @@ namespace quanLyKhachSan.view.UserControll
             this.hoaDon.Id_dichvu = dichVu.Id;
 
             hoaDon.Id_tkhoan = this.id_tkhoan;
+        }
+        private void tinhTien(DateTime tgVao, int idDichVu)
+        {
+            int giaDv = 0, thanhTien = 0;
+            //xử lấy giá tiền trong database
+            DataTable dichVu = cnn.getdata("select * from dich_vu where id = "+idDichVu+";");
+            if(dichVu.Rows.Count != 0)
+            {
+                DataRow dr = dichVu.Rows[0];
+                giaDv = (int)dr["gia"];
+            }
+            else
+            {
+                MessageBox.Show("Lỗi không tìm thấy dịch vụ");
+                giaDv = 0;
+            }
+            //xử lý thời gian sử dung
+            TimeSpan time = DateTime.Now.Subtract(tgVao);
+            this.hd.S_gio = time.Days+ " ngày " + time.Hours.ToString() +" giờ "+ time.Minutes.ToString()+" phút";
+            int phut = (time.Days * 24 * 60) + (time.Hours * 60) + time.Minutes;
+            if(phut > 30)
+            {
+                if (idDichVu == 1)
+                {
+                    /* Hàm tính tiền theo dịch vụ theo ngày
+                     * Cách tính: (giá một ngày X số ngày) + (giá theo giờ X số giờ lẻ)
+                    */
+                    int gia1Gio = 70000;
+                    thanhTien = (giaDv * time.Days) + (gia1Gio * time.Hours + time.Minutes * (gia1Gio / 60));
+                }
+                else
+                {
+                    //tinh tien theo gio
+                    thanhTien = (time.Days * 24 * giaDv) + (giaDv * time.Hours + time.Minutes * (giaDv / 60));
+                    
+                }
+                lableThanhtien.Text = String.Format("{0:#,##0.00}", thanhTien);
+                this.hd.S_tien = String.Format("{0:#,##0.00}", thanhTien);
+            }
+            else
+            {
+                lableThanhtien.Text = "Khác hàng mới dùng: "+phut+" phút";
+                this.hd.S_tien = "0";
+            }
         }
     }
 }

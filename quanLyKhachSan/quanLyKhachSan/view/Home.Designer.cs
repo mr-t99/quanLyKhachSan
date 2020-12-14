@@ -34,8 +34,8 @@
             this.phòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lịchSửToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giaoPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đặtPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trảPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btDatPhon = new System.Windows.Forms.ToolStripMenuItem();
+            this.btTraPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.thongke = new System.Windows.Forms.ToolStripMenuItem();
             this.hômNayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thángToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,46 +81,45 @@
             // nhânViênToolStripMenuItem
             // 
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
             this.nhânViênToolStripMenuItem.Click += new System.EventHandler(this.nhânViênToolStripMenuItem_Click);
             // 
             // phòngToolStripMenuItem
             // 
             this.phòngToolStripMenuItem.Name = "phòngToolStripMenuItem";
-            this.phòngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.phòngToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.phòngToolStripMenuItem.Text = "Phòng";
             this.phòngToolStripMenuItem.Click += new System.EventHandler(this.phòngToolStripMenuItem_Click);
             // 
             // lịchSửToolStripMenuItem
             // 
             this.lịchSửToolStripMenuItem.Name = "lịchSửToolStripMenuItem";
-            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.lịchSửToolStripMenuItem.Text = "Lịch sử";
             this.lịchSửToolStripMenuItem.Click += new System.EventHandler(this.lịchSửToolStripMenuItem_Click);
             // 
             // giaoPhòngToolStripMenuItem
             // 
             this.giaoPhòngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.đặtPhòngToolStripMenuItem,
-            this.trảPhòngToolStripMenuItem});
+            this.btDatPhon,
+            this.btTraPhong});
             this.giaoPhòngToolStripMenuItem.Name = "giaoPhòngToolStripMenuItem";
             this.giaoPhòngToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
             this.giaoPhòngToolStripMenuItem.Text = "Giao phòng";
             // 
-            // đặtPhòngToolStripMenuItem
+            // btDatPhon
             // 
-            this.đặtPhòngToolStripMenuItem.Name = "đặtPhòngToolStripMenuItem";
-            this.đặtPhòngToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
-            this.đặtPhòngToolStripMenuItem.Text = "Đặt phòng";
-            this.đặtPhòngToolStripMenuItem.Click += new System.EventHandler(this.đặtPhòngToolStripMenuItem_Click);
+            this.btDatPhon.Name = "btDatPhon";
+            this.btDatPhon.Size = new System.Drawing.Size(224, 26);
+            this.btDatPhon.Text = "Đặt phòng";
+            this.btDatPhon.Click += new System.EventHandler(this.btDatPhon_Click);
             // 
-            // trảPhòngToolStripMenuItem
+            // btTraPhong
             // 
-            this.trảPhòngToolStripMenuItem.Name = "trảPhòngToolStripMenuItem";
-            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
-            this.trảPhòngToolStripMenuItem.Text = "Trả phòng";
-            this.trảPhòngToolStripMenuItem.Click += new System.EventHandler(this.trảPhòngToolStripMenuItem_Click);
+            this.btTraPhong.Name = "btTraPhong";
+            this.btTraPhong.Size = new System.Drawing.Size(224, 26);
+            this.btTraPhong.Text = "Trả phòng";
             // 
             // thongke
             // 
@@ -284,8 +283,8 @@
         private UserControll.datphong datphong1;
         private UserControll.lichsu lichsu1;
         private UserControll.nhanvien nhanvien1;
-        private System.Windows.Forms.ToolStripMenuItem đặtPhòngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trảPhòngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btDatPhon;
+        private System.Windows.Forms.ToolStripMenuItem btTraPhong;
         private UserControll.thong_tin thong_tin1;
     }
 }

@@ -63,7 +63,6 @@ namespace quanLyKhachSan.view
                 Home h = new Home();
                 h.getType(User.H_ten, User.User_type, User.Id_nvien);
                 h.Show();
-
             }
         }
     }
