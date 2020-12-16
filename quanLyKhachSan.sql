@@ -124,4 +124,11 @@ select * from tai_khoan, nhan_vien where tai_khoan.id = nhan_vien.id and tai_kho
 update phong set t_thai=1 where id=2;
 --INSERT
 select * from hoa_don
-select 'Nhân viên đặt phòng' = (select h_ten from nhan_vien,'Nhân viên tra phòng' = (select h_ten from nhan_vien where id = hoa_don.id_tKhoan_ra) from hoa_don, nhan_vien, phong, dich_vu where hoa_don.id_tKhoan_vao = nhan_vien.id and hoa_don.id_tKhoan_ra = nhan_vien.id and hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id
+select 'Nhân viên nhận phòng' = (select h_ten from nhan_vien where id = hoa_don.id_tKhoan_vao),'Nhân viên trả phòng' = (select h_ten from nhan_vien where id = hoa_don.id_tKhoan_ra),khach_hang, 'Giờ vào'=concat(DATEPART(hh, gio_vao),':', DATEPART(mi, gio_vao)), 'Ngày vào'=concat(DATEPART(dd, gio_vao),'/', DATEPART(mm, gio_vao),'/', DATEPART(YY, gio_vao)), 'Giờ ra'=concat(DATEPART(hh, gio_ra),':', DATEPART(mi, gio_ra)), 'Ngày ra'=concat(DATEPART(dd, gio_ra),'/', DATEPART(mm, gio_ra),'/', DATEPART(YY, gio_ra)), dich_vu.t_dvu as 'Dịch vụ', phong.t_phong as 'Phòng', t_tien as 'Số tiền'   from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id 
+order by hoa_don.id desc
+
+select * from hoa_don where DATEPART(dd, gio_vao) = '14'
+
+--thong ke theo ngay
+select khach_hang as 'Khách hàng', dich_vu.t_dvu as 'Dịch vụ', t_tien as 'Chi phí' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and id_tKhoan_ra = 2
+select sum(hoa_don.t_tien) as 'tong' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE())

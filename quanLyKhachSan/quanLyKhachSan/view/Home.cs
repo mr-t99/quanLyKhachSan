@@ -40,6 +40,7 @@ namespace quanLyKhachSan.view
                 lichsu1.Visible = false;
                 phong1.Visible = false;
                 thong_tin1.Visible = false;
+                thongKe1.Visible = false;
             }
             else
             {
@@ -48,6 +49,7 @@ namespace quanLyKhachSan.view
                 lichsu1.Visible = false;
                 phong1.Visible = true;
                 thong_tin1.Visible = false;
+                thongKe1.Visible = false;
             }
         }
 
@@ -64,6 +66,7 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = false;
             phong1.Visible = false;
             thong_tin1.Visible = false;
+            thongKe1.Visible = false;
             //xl nhan vien
 
 
@@ -77,6 +80,7 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = false;
             phong1.Visible = true;
             thong_tin1.Visible = false;
+            thongKe1.Visible = false;
         }
 
         private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,6 +91,7 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = true;
             phong1.Visible = false;
             thong_tin1.Visible = false;
+            thongKe1.Visible = false;
         }
 
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,6 +102,7 @@ namespace quanLyKhachSan.view
             phong1.Visible = false;
             thong_tin1.Visible = true;
             thong_tin1.setId(this.id_nvien);
+            thongKe1.Visible = false;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,6 +111,8 @@ namespace quanLyKhachSan.view
             if(dl == DialogResult.Yes)
             {
                 this.Dispose();
+                DangNhap dn = new DangNhap();
+                dn.Visible = true;
             }
         }
 
@@ -116,6 +124,7 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = false;
             phong1.Visible = false;
             thong_tin1.Visible = false;
+            thongKe1.Visible = false;
         }
 
         private void btTraPhong_Click(object sender, EventArgs e)
@@ -127,6 +136,7 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = false;
             phong1.Visible = false;
             thong_tin1.Visible = false;
+            thongKe1.Visible = false;
         }
 
         public void getStatus(int a)
@@ -144,7 +154,25 @@ namespace quanLyKhachSan.view
 
         private void thángToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            datphong1.Visible = false;
+            nhanvien1.Visible = false;
+            lichsu1.Visible = false;
+            phong1.Visible = false;
+            thong_tin1.Visible = false;
+            thongKe1.Visible = true;
+            thongKe1.setLoai(1);
 
+        }
+
+        private void hômNayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            datphong1.Visible = false;
+            nhanvien1.Visible = false;
+            lichsu1.Visible = false;
+            phong1.Visible = false;
+            thong_tin1.Visible = false;
+            thongKe1.Visible = true;
+            thongKe1.setLoai(0);
         }
 
         private void Home_loadTable(int i)
