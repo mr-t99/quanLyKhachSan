@@ -111,14 +111,14 @@
             // btDatPhon
             // 
             this.btDatPhon.Name = "btDatPhon";
-            this.btDatPhon.Size = new System.Drawing.Size(224, 26);
+            this.btDatPhon.Size = new System.Drawing.Size(163, 26);
             this.btDatPhon.Text = "Đặt phòng";
             this.btDatPhon.Click += new System.EventHandler(this.btDatPhon_Click);
             // 
             // btTraPhong
             // 
             this.btTraPhong.Name = "btTraPhong";
-            this.btTraPhong.Size = new System.Drawing.Size(224, 26);
+            this.btTraPhong.Size = new System.Drawing.Size(163, 26);
             this.btTraPhong.Text = "Trả phòng";
             this.btTraPhong.Click += new System.EventHandler(this.btTraPhong_Click);
             // 
@@ -142,6 +142,7 @@
             this.thángToolStripMenuItem.Name = "thángToolStripMenuItem";
             this.thángToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.thángToolStripMenuItem.Text = "Tháng";
+            this.thángToolStripMenuItem.Click += new System.EventHandler(this.thángToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
@@ -193,6 +194,7 @@
             // 
             // thong_tin1
             // 
+            this.thong_tin1.AllowDrop = true;
             this.thong_tin1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thong_tin1.Location = new System.Drawing.Point(13, 32);
             this.thong_tin1.Margin = new System.Windows.Forms.Padding(5);
@@ -252,7 +254,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Home";
-            this.Text = "Home";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

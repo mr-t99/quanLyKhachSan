@@ -96,6 +96,7 @@ namespace quanLyKhachSan.view
             lichsu1.Visible = false;
             phong1.Visible = false;
             thong_tin1.Visible = true;
+            thong_tin1.setId(this.id_nvien);
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,6 +140,11 @@ namespace quanLyKhachSan.view
                 }
             }
             
+        }
+
+        private void thángToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Home_loadTable(int i)

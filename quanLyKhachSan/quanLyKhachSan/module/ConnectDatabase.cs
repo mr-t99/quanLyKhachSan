@@ -18,6 +18,7 @@ namespace quanLyKhachSan.module
         
         public DataTable getdata(string sql)
         {
+            Console.WriteLine(sql);
             try
             {
                 conn = new SqlConnection(sqlConnect);

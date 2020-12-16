@@ -109,11 +109,11 @@
     <Compile Include="view\UserControll\thong tin.Designer.cs">
       <DependentUpon>thong tin.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\UserControll\traphong.cs">
+    <Compile Include="view\UserControll\ThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\UserControll\traphong.Designer.cs">
-      <DependentUpon>traphong.cs</DependentUpon>
+    <Compile Include="view\UserControll\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="view\UserControll\thong tin.resx">
       <DependentUpon>thong tin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\UserControll\traphong.resx">
-      <DependentUpon>traphong.cs</DependentUpon>
+    <EmbeddedResource Include="view\UserControll\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

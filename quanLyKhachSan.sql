@@ -118,8 +118,10 @@ select * from hoa_don where gio_ra is not null
 select phong.id, phong.id_tang,  t_phong as N'Phòng', ten as N'Tầng', trang_thai.t_tthai as N'Trạng thái' from phong, trang_thai,tang where phong.t_thai = trang_thai.id and tang.id = phong.id_tang and trang_thai.id =1;
 
 
-
+--select
+select * from tai_khoan, nhan_vien where tai_khoan.id = nhan_vien.id and tai_khoan.id = 1
 --UPDATE DATA
 update phong set t_thai=1 where id=2;
 --INSERT
 select * from hoa_don
+select 'Nhân viên đặt phòng' = (select h_ten from nhan_vien,'Nhân viên tra phòng' = (select h_ten from nhan_vien where id = hoa_don.id_tKhoan_ra) from hoa_don, nhan_vien, phong, dich_vu where hoa_don.id_tKhoan_vao = nhan_vien.id and hoa_don.id_tKhoan_ra = nhan_vien.id and hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id

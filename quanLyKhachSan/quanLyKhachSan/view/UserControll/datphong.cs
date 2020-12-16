@@ -308,7 +308,7 @@ namespace quanLyKhachSan.view.UserControll
                     
                 }
                 lableThanhtien.Text = String.Format("{0:#,##0.00}", thanhTien);
-                this.hd.S_tien = String.Format("{0:#,##0.00}", thanhTien);
+                this.hd.S_tien = thanhTien.ToString();
             }
             else
             {

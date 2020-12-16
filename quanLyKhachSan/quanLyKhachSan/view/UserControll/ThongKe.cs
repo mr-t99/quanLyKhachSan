@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace quanLyKhachSan.view.UserControll
 {
-    public partial class traphong : UserControl
+    public partial class ThongKe : UserControl
     {
-        public traphong()
+        public ThongKe()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

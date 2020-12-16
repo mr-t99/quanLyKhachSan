@@ -14,8 +14,6 @@ namespace quanLyKhachSan.view
     public partial class FromHoaDon : Form
     {
         private HoaDon hd;
-        public delegate void SendStatus(int status);
-        public event SendStatus gui;
         public FromHoaDon()
         {
             InitializeComponent();
@@ -48,7 +46,7 @@ namespace quanLyKhachSan.view
                 richTextBox1.AppendText("\n             Thông tin sử dụng: ");
                 richTextBox1.AppendText("\n                         Số giờ sử dụng: " + this.hd.S_gio);
                 richTextBox1.AppendText("\n                         Dịch vụ: " + this.hd.D_vu);
-                richTextBox1.AppendText("\n                         Thành tiền: " + this.hd.S_tien);
+                richTextBox1.AppendText("\n                         Thành tiền: " + String.Format("{0:#,##0.00}", Int32.Parse(this.hd.S_tien)));
                 richTextBox1.AppendText("\n\n\n                                                                                        Nhân viên");
                 richTextBox1.AppendText("\n\n                                                                                 " + this.hd.T_nv);
             }
@@ -64,28 +62,19 @@ namespace quanLyKhachSan.view
                 {
                     row = 1;
                     MessageBox.Show("In hóa đơn thành công");
-                    this.gui += FromHoaDon_gui;
-            if (gui != null)
-            {
-                gui(row);
-            }
-            this.Dispose();
+                    this.Dispose();
                 }
                 else
                 {
+                    Console.WriteLine("Lỗi phần phòng");
                     row = 0;
                 }
             }
             else
             {
+                Console.WriteLine("Lỗi phần hóa đơn");
                 row = 0;
             }
-        }
-
-        private void FromHoaDon_gui(int status)
-        {
-            Home home = new Home();
-            home.getStatus(status);
         }
     }
 }
