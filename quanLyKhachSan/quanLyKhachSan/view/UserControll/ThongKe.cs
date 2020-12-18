@@ -90,10 +90,12 @@ namespace quanLyKhachSan.view.UserControll
                 if (loai == 0)
                 {
                     LayThongTinGiaoDich("select khach_hang as 'Khách hàng', dich_vu.t_dvu as 'Dịch vụ', t_tien as 'Chi phí' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and id_tKhoan_ra =" + this.id_nvien + " ");
+                    LayTongTien("select sum(t_tien) as tong from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and id_tKhoan_ra ="+id_nvien+" ");
                 }
                 else
                 {
                     LayThongTinGiaoDich("select khach_hang as 'Khách hàng', dich_vu.t_dvu as 'Dịch vụ', t_tien as 'Chi phí' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(mm, gio_vao) = "+DateTime.Now.ToString("MM")+" and id_tKhoan_ra = "+id_nvien+"");
+                    LayTongTien("select sum(t_tien) as tong from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(mm, gio_vao) = " + DateTime.Now.ToString("MM") + " and id_tKhoan_ra = " + id_nvien+"");
                 }
             }
         }
@@ -115,6 +117,22 @@ namespace quanLyKhachSan.view.UserControll
                 {
                     lbThongBao.Visible = true;
                     tableGiaoDich.Visible = false;
+                }
+            }
+        }
+        private void LayTongTien(string sql)
+        {
+            if (this.id_nvien != 0)
+            {
+                cnn = new ConnectDatabase();
+                DataTable data = cnn.getdata(sql);
+                if (data.Rows[0]["tong"].ToString().Length != 0)
+                {
+                    lbDoanhThu.Text = String.Format("{0:#,##0.00}", Int32.Parse(data.Rows[0]["tong"].ToString())) + " VND";
+                }
+                else
+                {
+                    lbDoanhThu.Text = "0";
                 }
             }
         }

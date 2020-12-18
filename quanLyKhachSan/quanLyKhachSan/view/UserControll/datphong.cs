@@ -64,6 +64,8 @@ namespace quanLyKhachSan.view.UserControll
                 label1.Text = "Trả Phòng";
                 loadDataGirlView();
                 btXacNhan.Enabled = false;
+                lbThanhTien.Visible = true;
+                lableThanhtien.Visible = true;
             }
             if (a == 0)
             {
@@ -74,6 +76,8 @@ namespace quanLyKhachSan.view.UserControll
                 label1.Text = "Đặt phòng";
                 loadDataGirlView();
                 btXacNhan.Enabled = true;
+                lbThanhTien.Visible = false;
+                lableThanhtien.Visible = false;
             }
         }
 

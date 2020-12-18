@@ -35,13 +35,13 @@
             this.lbTong = new System.Windows.Forms.Label();
             this.lbNgay = new System.Windows.Forms.Label();
             this.ThongTin = new System.Windows.Forms.Panel();
+            this.lbThongBao = new System.Windows.Forms.Label();
+            this.tableGiaoDich = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.lbDoanhThu = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.tableGiaoDich = new System.Windows.Forms.DataGridView();
-            this.lbThongBao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tableNhanVien)).BeginInit();
             this.ThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableGiaoDich)).BeginInit();
@@ -117,6 +117,25 @@
             this.ThongTin.Size = new System.Drawing.Size(838, 406);
             this.ThongTin.TabIndex = 2;
             // 
+            // lbThongBao
+            // 
+            this.lbThongBao.AutoSize = true;
+            this.lbThongBao.Location = new System.Drawing.Point(302, 203);
+            this.lbThongBao.Name = "lbThongBao";
+            this.lbThongBao.Size = new System.Drawing.Size(219, 29);
+            this.lbThongBao.TabIndex = 9;
+            this.lbThongBao.Text = "Không có giao dịch";
+            // 
+            // tableGiaoDich
+            // 
+            this.tableGiaoDich.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableGiaoDich.Location = new System.Drawing.Point(15, 82);
+            this.tableGiaoDich.Name = "tableGiaoDich";
+            this.tableGiaoDich.RowHeadersWidth = 51;
+            this.tableGiaoDich.RowTemplate.Height = 24;
+            this.tableGiaoDich.Size = new System.Drawing.Size(814, 321);
+            this.tableGiaoDich.TabIndex = 8;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -131,9 +150,9 @@
             this.lbDoanhThu.AutoSize = true;
             this.lbDoanhThu.Location = new System.Drawing.Point(644, 9);
             this.lbDoanhThu.Name = "lbDoanhThu";
-            this.lbDoanhThu.Size = new System.Drawing.Size(26, 29);
+            this.lbDoanhThu.Size = new System.Drawing.Size(148, 29);
             this.lbDoanhThu.TabIndex = 4;
-            this.lbDoanhThu.Text = "0";
+            this.lbDoanhThu.Text = "3.255.000.00";
             // 
             // label9
             // 
@@ -163,25 +182,6 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Nhân viên:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // tableGiaoDich
-            // 
-            this.tableGiaoDich.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableGiaoDich.Location = new System.Drawing.Point(15, 82);
-            this.tableGiaoDich.Name = "tableGiaoDich";
-            this.tableGiaoDich.RowHeadersWidth = 51;
-            this.tableGiaoDich.RowTemplate.Height = 24;
-            this.tableGiaoDich.Size = new System.Drawing.Size(814, 321);
-            this.tableGiaoDich.TabIndex = 8;
-            // 
-            // lbThongBao
-            // 
-            this.lbThongBao.AutoSize = true;
-            this.lbThongBao.Location = new System.Drawing.Point(302, 203);
-            this.lbThongBao.Name = "lbThongBao";
-            this.lbThongBao.Size = new System.Drawing.Size(219, 29);
-            this.lbThongBao.TabIndex = 9;
-            this.lbThongBao.Text = "Không có giao dịch";
             // 
             // ThongKe
             // 

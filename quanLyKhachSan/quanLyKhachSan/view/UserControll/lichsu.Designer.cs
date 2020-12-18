@@ -42,6 +42,7 @@
             this.label1.Size = new System.Drawing.Size(192, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lịch sử giao dich";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
             // 

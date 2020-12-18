@@ -34,7 +34,7 @@
             this.panelDathong = new System.Windows.Forms.Panel();
             this.btXacNhan = new System.Windows.Forms.Button();
             this.lableThanhtien = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbThanhTien = new System.Windows.Forms.Label();
             this.panelThongTin = new System.Windows.Forms.Panel();
             this.cbDichVu = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             this.panelDathong.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelDathong.Controls.Add(this.btXacNhan);
             this.panelDathong.Controls.Add(this.lableThanhtien);
-            this.panelDathong.Controls.Add(this.label9);
+            this.panelDathong.Controls.Add(this.lbThanhTien);
             this.panelDathong.Controls.Add(this.panelThongTin);
             this.panelDathong.Controls.Add(this.panelPhong);
             this.panelDathong.Location = new System.Drawing.Point(906, 65);
@@ -112,15 +112,15 @@
             this.lableThanhtien.TabIndex = 5;
             this.lableThanhtien.Text = "3.000.000,00";
             // 
-            // label9
+            // lbThanhTien
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 434);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(113, 24);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Thành Tiền:";
+            this.lbThanhTien.AutoSize = true;
+            this.lbThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbThanhTien.Location = new System.Drawing.Point(3, 434);
+            this.lbThanhTien.Name = "lbThanhTien";
+            this.lbThanhTien.Size = new System.Drawing.Size(113, 24);
+            this.lbThanhTien.TabIndex = 5;
+            this.lbThanhTien.Text = "Thành Tiền:";
             // 
             // panelThongTin
             // 
@@ -283,7 +283,7 @@
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Button btXacNhan;
         private System.Windows.Forms.Label lableThanhtien;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbThanhTien;
         private System.Windows.Forms.Panel panelThongTin;
         private System.Windows.Forms.ComboBox cbDichVu;
         private System.Windows.Forms.Label label4;
