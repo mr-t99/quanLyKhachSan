@@ -49,7 +49,7 @@
             this.btHuy.TabIndex = 1;
             this.btHuy.Text = "Hủy";
             this.btHuy.UseVisualStyleBackColor = true;
-            this.btHuy.Click += new System.EventHandler(this.btIn_Click);
+            this.btHuy.Click += new System.EventHandler(this.btHuy_Click);
             // 
             // button1
             // 
@@ -63,14 +63,14 @@
             // 
             // FromHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 636);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btHuy);
             this.Controls.Add(this.richTextBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FromHoaDon";
             this.Text = "FromHoaDon";
             this.Load += new System.EventHandler(this.FromHoaDon_Load);

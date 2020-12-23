@@ -27,6 +27,7 @@ namespace quanLyKhachSan.view.UserControll
             cnn = new ConnectDatabase();
             tableNhanVien.DataSource = cnn.getdata("select id_tKhoan, h_ten as 'Họ tên' from nhan_vien");
             tableNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tableNhanVien.Columns[0].Visible = false;
             Console.WriteLine(DateTime.Now);
             ThongTin.Visible = false;
             lbThongBao.Visible = false;
@@ -55,8 +56,8 @@ namespace quanLyKhachSan.view.UserControll
                 //hiển thị giao diện theo ngày
                 lbNgay.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 lbNgayThang.Text = "Hôm nay:";
-                data = cnn.getdata("select sum(hoa_don.t_tien) as 'tong' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE())");
-                if (data.Rows[0]["tong"].ToString().Length != 0)
+                data = cnn.getdata("select sum(hoa_don.t_tien) as 'tong' from hoa_don, phong where  hoa_don.id_phong = phong.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE())");
+                if ( data.Rows.Count!=0 && data.Rows[0]["tong"].ToString().Length != 0)
                 {
                     lbTong.Text = String.Format("{0:#,##0.00}", Int32.Parse(data.Rows[0]["tong"].ToString())) + " VND";
                 }
@@ -87,15 +88,16 @@ namespace quanLyKhachSan.view.UserControll
             {
                 this.id_nvien = (int)tableNhanVien.Rows[e.RowIndex].Cells[0].Value;
                 ThongTin.Visible = true;
+                lbTen.Text = tableNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (loai == 0)
                 {
-                    LayThongTinGiaoDich("select khach_hang as 'Khách hàng', dich_vu.t_dvu as 'Dịch vụ', t_tien as 'Chi phí' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and id_tKhoan_ra =" + this.id_nvien + " ");
-                    LayTongTien("select sum(t_tien) as tong from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and id_tKhoan_ra ="+id_nvien+" ");
+                    LayThongTinGiaoDich("select khach_hang.t_khang as 'Khách hàng','Ngày ra'=concat(DATEPART(dd, gio_ra),'/', DATEPART(mm, gio_ra),'/', DATEPART(YY, gio_ra)), phong.t_phong as 'Phòng', t_tien as 'Chi phí' from hoa_don, phong, khach_hang where  hoa_don.id_phong = phong.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and hoa_don.cmnd = khach_hang.cmnd and id_tKhoan_ra ="+this.id_nvien+" ");
+                    LayTongTien("select sum(t_tien) as tong from hoa_don, phong where  hoa_don.id_phong = phong.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(dd, gio_vao) = DATEPART(dd, GETDATE()) and DATEPART(mm, gio_vao) = DATEPART(mm, GETDATE()) and id_tKhoan_ra =" + id_nvien + " ");
                 }
                 else
                 {
-                    LayThongTinGiaoDich("select khach_hang as 'Khách hàng', dich_vu.t_dvu as 'Dịch vụ', t_tien as 'Chi phí' from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(mm, gio_vao) = "+DateTime.Now.ToString("MM")+" and id_tKhoan_ra = "+id_nvien+"");
-                    LayTongTien("select sum(t_tien) as tong from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id and hoa_don.id_dvu = dich_vu.id and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(mm, gio_vao) = " + DateTime.Now.ToString("MM") + " and id_tKhoan_ra = " + id_nvien+"");
+                    LayThongTinGiaoDich("select khach_hang.t_khang as 'Khách hàng','Ngày ra'=concat(DATEPART(dd, gio_ra),'/', DATEPART(mm, gio_ra),'/', DATEPART(YY, gio_ra)), phong.t_phong as 'Phòng', t_tien as 'Chi phí' from hoa_don, phong, khach_hang where  hoa_don.id_phong = phong.id and hoa_don.cmnd = khach_hang.cmnd and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(mm, gio_vao) = "+DateTime.Now.ToString("MM")+" and id_tKhoan_ra = "+id_nvien+"");
+                    LayTongTien("select sum(t_tien) as tong from hoa_don, phong, dich_vu where  hoa_don.id_phong = phong.id  and hoa_don.id_tKhoan_ra is not null and t_tien is not null and DATEPART(mm, gio_vao) = "+DateTime.Now.ToString("MM")+" and id_tKhoan_ra = "+id_nvien+"");
                 }
             }
         }

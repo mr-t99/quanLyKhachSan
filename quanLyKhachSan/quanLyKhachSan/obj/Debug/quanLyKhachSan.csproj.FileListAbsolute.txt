@@ -1,3 +1,4 @@
+D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.csproj.CoreCompileInputs.cache
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\bin\Debug\quanLyKhachSan.exe.config
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\bin\Debug\quanLyKhachSan.exe
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\bin\Debug\quanLyKhachSan.pdb
@@ -10,9 +11,9 @@ D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanL
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.nhanvien.resources
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.phong.resources
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.thong_tin.resources
+D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.ThongKe.resources
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.csproj.GenerateResource.cache
-D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.csproj.CoreCompileInputs.cache
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.exe
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.pdb
 D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.csprojAssemblyReference.cache
-D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.UserControll.ThongKe.resources
+D:\HK-II-Nam4\money\quanLyKhachSan\quanLyKhachSan\quanLyKhachSan\obj\Debug\quanLyKhachSan.view.FormDichVu.resources

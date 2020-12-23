@@ -54,7 +54,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="module\ConnectDatabase.cs" />
+    <Compile Include="module\DichVu.cs" />
     <Compile Include="module\HoaDon.cs" />
+    <Compile Include="module\KhachHang.cs" />
     <Compile Include="module\modelHoaDon.cs" />
     <Compile Include="module\ModelPhong.cs" />
     <Compile Include="module\Quyen.cs" />
@@ -66,6 +68,12 @@
     </Compile>
     <Compile Include="view\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormDichVu.Designer.cs">
+      <DependentUpon>FormDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FromHoaDon.cs">
       <SubType>Form</SubType>
@@ -126,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="view\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormDichVu.resx">
+      <DependentUpon>FormDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FromHoaDon.resx">
       <DependentUpon>FromHoaDon.cs</DependentUpon>

@@ -8,7 +8,7 @@ namespace quanLyKhachSan.module
 {
     public class HoaDon
     {
-        String t_khang, n_vao, g_vao, s_gio, s_tien, t_nv,t_phong, t_tang, d_vu, id_phong, id_tkhoan, id_hoaDon;
+        String t_khang, n_vao, g_vao, s_gio, s_tien, t_nv,t_phong, t_tang, d_vu, id_phong, id_tkhoan, id_hoaDon, cmnd,sdt,dia_chi;
 
         public string T_khang { get => t_khang; set => t_khang = value; }
         public string N_vao { get => n_vao; set => n_vao = value; }
@@ -22,5 +22,8 @@ namespace quanLyKhachSan.module
         public string Id_phong { get => id_phong; set => id_phong = value; }
         public string Id_tkhoan { get => id_tkhoan; set => id_tkhoan = value; }
         public string Id_hoaDon { get => id_hoaDon; set => id_hoaDon = value; }
+        public string Cmnd { get => cmnd; set => cmnd = value; }
+        public string Sdt { get => sdt; set => sdt = value; }
+        public string Dia_chi { get => dia_chi; set => dia_chi = value; }
     }
 }
